@@ -17,7 +17,10 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException, Depends, Header
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from agents import Runner
+def _get_runner():
+    """Lazy import to avoid Vercel's _vendor/agents shadow."""
+    from agents import Runner
+    return Runner
 
 from src.config import OPENAI_MODEL
 from src.models import TeachingContext, GradingResult, ChatSession, ROLES, GradeRequest, GradeResponse
@@ -273,7 +276,7 @@ async def grade_submission(req: GradeRequest, current_user: User = Depends(requi
             f"Follow the workflow: Q1 -> Q2 -> Q3 -> compile GradingResult."
         )
         try:
-            result = await Runner.run(teaching_assistant_agent, user_message, context=context)
+            result = await _get_runner().run(teaching_assistant_agent, user_message, context=context)
             grade: GradingResult = result.final_output
             result_data = GradeResponse(
                 score=grade.score, verdict=grade.verdict,
