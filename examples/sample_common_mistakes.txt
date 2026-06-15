@@ -1,0 +1,5 @@
+1. Students often forget to convert input() to float() before math operations
+2. Many students use if/else without proper indentation
+3. Function definition after the main code (should be before)
+4. Not handling invalid input for C/F choice
+5. Print formatting doesn't match expected output exactly

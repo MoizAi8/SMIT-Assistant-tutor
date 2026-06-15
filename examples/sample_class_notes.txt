@@ -1,0 +1,11 @@
+Class 3 Notes - Functions:
+- def keyword se function banate hain
+- Function ke baad colon (:) zaroori hai
+- Indentation (4 spaces) batati hai function ke andar ka code
+- return value wapas bhejta hai
+- Function ko call karna hai, define karna hi kaafi nahi
+
+Class 4 Notes - Input/Output:
+- input() hamesha string return karta hai
+- Numbers ke liye int() ya float() use karein
+- f-strings se output clean banata hai

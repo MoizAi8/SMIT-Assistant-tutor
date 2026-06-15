@@ -1,0 +1,23 @@
+[project]
+name = "ai-teaching-assistant"
+version = "1.0.0"
+description = "AI Teaching Assistant - grades code submissions with rubric-based evaluation, Roman Urdu feedback, and interactive chatbot"
+requires-python = ">=3.10"
+dependencies = [
+    "openai-agents>=0.1.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+]
+
+[project.scripts]
+ta-grade = "main:main"
+ta-api = "api.main:start"
+
+[tool.uv]
+dev-dependencies = []
+
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
